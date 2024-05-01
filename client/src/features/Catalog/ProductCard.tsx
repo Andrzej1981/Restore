@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import agent from "../../app/api/agent";
 import { useState } from "react";
 import { LoadingButton } from "@mui/lab";
-import { useStoreContext } from "../../app/context/StoreContext";
 import { currencyFormat } from "../../app/util/util";
+import { useAppDispatch } from "../../app/store/configureStore";
+import { setBasket } from "../basket/backetSlice";
 
 interface Props{
     product:Product;
@@ -14,12 +15,12 @@ interface Props{
 export default function ProductCard({product}:Props){
 
   const [loading,setLoading] = useState(false);
-  const{setBasket} = useStoreContext();
+  const dispatch = useAppDispatch();
 
   function handleAddItem(productId:number){
     setLoading(true);
     agent.Basket.addItem(productId)
-    .then(basket => setBasket(basket))
+    .then(basket => dispatch(setBasket(basket)))
     .catch(error=>error.log())
     .finally(()=>setLoading(false))
     
@@ -55,8 +56,8 @@ export default function ProductCard({product}:Props){
         <CardActions>
           <LoadingButton
            loading={loading} onClick={()=>handleAddItem(product.id)}
-           size="small">Add to Cart</LoadingButton>
-          <Button component={Link} to={`/catalog/${product.id}`} size="small">View</Button>
+           size="small">Dodaj do koszyka</LoadingButton>
+          <Button component={Link} to={`/catalog/${product.id}`} size="small">Zobacz</Button>
         </CardActions>
       </Card>
 
