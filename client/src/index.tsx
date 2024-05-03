@@ -12,13 +12,22 @@ import { store } from './app/store/configureStore.ts';
 
 
 
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+)
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+
+
+root.render(
   <React.StrictMode>
     
     <Provider store={store}>
     <RouterProvider router={router}/>
     </Provider>
     
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+
+);
+
+
+
