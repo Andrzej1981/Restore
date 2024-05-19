@@ -4,7 +4,7 @@ interface Props{
     message?:string;
 }
 
-export default function LoadingComponent({message = 'Loading...'}:Props){
+export default function LoadingComponent({message = 'Czekaj...'}:Props){
     return(
         <Backdrop open={true} invisible={true}>
         <Box display='flex' justifyContent='center' alignItems='center' height='100vh'>
