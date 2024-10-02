@@ -11,9 +11,9 @@ const {state}=useLocation();
                 <>
                 <Typography gutterBottom variant="h3" color='secondary'>{state.error.title}</Typography>
                 <Divider/>
-                <Typography variant="body1">{state.error.detail || 'Internal server error'}</Typography>
+                <Typography variant="body1">{state.error.detail || 'Wewnętrzny błąd serwera!'}</Typography>
                 </>
-            ):(<Typography gutterBottom variant="h5">Server error</Typography>)}
+            ):(<Typography gutterBottom variant="h5">Błąd serwera !</Typography>)}
             
         </Container>
     )

@@ -1,7 +1,13 @@
-import { Typography } from "@mui/material";
+
+import { CardMedia } from "@mui/material";
+
 
 export default function HomePage(){
     return(
-        <Typography variant="h3">Home Page</Typography>
+        <CardMedia
+          sx={{ height: 850, backgroundSize: 'contain', bgcolor:'primary.light' }}
+          image={'../../../public/images/Restore.jpg'}
+          title={''}
+        />
     )
     }

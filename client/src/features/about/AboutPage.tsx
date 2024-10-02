@@ -4,10 +4,10 @@ import { useState } from "react";
 
 export default function AboutPage(){
 
-    const [validationErrors,setvalidationErrors] = useState<string[]>([]);
+    const [validationErrors,setValidationErrors] = useState<string[]>([]);
 
     function getValidationError(){
-        agent.TestErrors.getValidationError().then(()=>console.log('should not see this')).catch(error=>setvalidationErrors(error));
+        agent.TestErrors.getValidationError().then(()=>console.log('should not see this')).catch(error=>setValidationErrors(error));
     }
 
     return(
@@ -18,9 +18,9 @@ export default function AboutPage(){
             <Button variant="contained" onClick={()=>agent.TestErrors.get401Error().catch(error=>{console.log(error)})}>Test401 Error</Button>
             <Button variant="contained" onClick={()=>agent.TestErrors.get404Error().catch(error=>{console.log(error)})}>Test404 Error</Button>
             <Button variant="contained" onClick={()=>agent.TestErrors.get500Error().catch(error=>{console.log(error)})}>Test500 Error</Button>
-            <Button variant="contained" onClick={getValidationError}>Validation Error</Button>
+            <Button variant="contained" onClick={()=>getValidationError()}>Validation Error</Button>
         </ButtonGroup>
-        {validationErrors.length>0 &&
+        { (validationErrors.length > 0) &&
             <Alert severity="error">
                 <AlertTitle>Validation Error</AlertTitle>
                 <List>

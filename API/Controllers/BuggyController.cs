@@ -31,7 +31,7 @@ namespace API.Controllers
         {
             ModelState.AddModelError("Problem 1", "Error first");
             ModelState.AddModelError("Problem 2", "Error second");
-            return Unauthorized();
+            return ValidationProblem();
         }
 
         [HttpGet("server-problem")]
