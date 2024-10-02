@@ -6,7 +6,7 @@ export default function HomePage(){
     return(
         <CardMedia
           sx={{ height: 850, backgroundSize: 'contain', bgcolor:'primary.light' }}
-          image={'../../../public/images/Restore.jpg'}
+          image={'./images/Restore.jpg'}
           title={''}
         />
     )

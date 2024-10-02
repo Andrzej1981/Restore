@@ -82,6 +82,7 @@ export default function ProductDetails(){
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <br></br>
                 <Grid container spacing={2}>
                         <Grid item xs={6}>
                             <TextField
