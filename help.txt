@@ -1,0 +1,15 @@
+token
+Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJNYXJpYW5uYTY5QGJ1emlhY3play5wbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJNYXJpYW5uYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik1lbWJlciIsImV4cCI6MTcyOTEwNjMxOX0.9O-DloOr854_zp106d3hhe06MNxLkicH59kWQLBywq7WFECJ3WXUfU5rK4HAqMM-X90E_ww7mGb9h31rzZx_pg
+
+{
+  "saveAddress": false,
+  "shippingAddress": {
+    "fullName": "Bob Cipaska",
+    "address1": "Mielec 38/3",
+    "address2": "Zdziarzec 160",
+    "city": "Zdzoarzec",
+    "state": "Podkarpackie",
+    "zip": "39-311",
+    "country": "Polska"
+  }
+}
