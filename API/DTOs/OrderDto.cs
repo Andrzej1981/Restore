@@ -8,7 +8,7 @@ namespace API.DTOs
 {
     public class OrderDto
     {
-         public int Id { get; set; }
+        public int Id { get; set; }
         public string BuyerId { get; set; }
         
         public ShippingAddress ShippingAddress { get; set; }

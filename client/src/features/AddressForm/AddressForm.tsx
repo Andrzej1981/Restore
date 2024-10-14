@@ -13,11 +13,7 @@ export default function AddressForm() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <AppTextInput
-            control={control}
-            name="fullName"
-            label="Imie i nazwisko"
-          />
+          <AppTextInput control={control} name="fullName" label="Imie i nazwisko"/>
         </Grid>
         <Grid item xs={12}>
           <AppTextInput

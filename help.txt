@@ -13,3 +13,5 @@ Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9y
     "country": "Polska"
   }
 }
+
+stripe listen -f http://localhost:5000/api/payments/webhook -e charge.succeeded
