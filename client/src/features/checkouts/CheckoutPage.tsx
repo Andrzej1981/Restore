@@ -75,12 +75,11 @@ function getStepContent(step: number) {
 
     async function submitOrder(data:FieldValues) {
         setLoading(true)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const {nameOnCard, saveAddress, ...shippingAddress} = data;
         if(!stripe || !elements) return; //stripe is not ready
         try{
             const cardElement = elements.getElement(CardNumberElement);
-            const paymentResult = await stripe.confirmCardPayment(basket?.clientSecret,{
+            const paymentResult = await stripe.confirmCardPayment(basket?.clientSecret as string,{
                 payment_method:{
                     card:cardElement!,
                     billing_details:{
@@ -98,7 +97,7 @@ function getStepContent(step: number) {
                 dispatch(clearBasket());
                 setLoading(false);
             } else {
-                setPaymentMessage(paymentResult.error?.message)
+                setPaymentMessage(paymentResult.error?.message as string)
                 setPaymentSucceeded(false);
                 setLoading(false);
                 setActiveStep(activeStep+1);

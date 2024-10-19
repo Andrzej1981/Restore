@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function ProductSearch(){
     const {productParams} = useAppSelector(state=>state.catalog);
-    const [searchTerm,setSearchTerm] = useState(productParams.seachTerm)
+    const [searchTerm,setSearchTerm] = useState(productParams.searchTerm)
     const dispatch = useAppDispatch();
 
     const debouncedSearch = debounce((event:any)=>{

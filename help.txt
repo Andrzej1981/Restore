@@ -5,8 +5,8 @@ Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9y
   "saveAddress": false,
   "shippingAddress": {
     "fullName": "Bob Cipaska",
-    "address1": "Mielec 38/3",
-    "address2": "Zdziarzec 160",
+    "address1": "DD 38/3",
+    "address2": "ZdziDDrzec 80",
     "city": "Zdzoarzec",
     "state": "Podkarpackie",
     "zip": "39-311",
@@ -15,3 +15,32 @@ Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9y
 }
 
 stripe listen -f http://localhost:5000/api/payments/webhook -e charge.succeeded
+
+Sqlite
+"DefaultConnection":"Data source = store.db"
+
+
+Postgres
+"DefaultConnection":"Server=localhost;Port=5432;User Id=appuser;Password=secret;Database=store"
+
+
+utworzenie kontenera
+docker build -t andrzejs21/restore .
+
+uruchomienie kontenera
+docker run --rm -it -p 8080:80 andrzejs21/restore
+
+załadowanie kontenera do dockerhuba
+docker push andrzejs21/restore:latest
+
+
+Postgres cluster andrzej123 created
+  Username:    postgres
+  Password:    KE06xfcD389P10u
+  Hostname:    andrzej123.internal
+  Flycast:     fdaa:a:a700:0:1::2
+  Proxy port:  5432
+  Postgres port:  5433
+  Connection string: postgres://postgres:KE06xfcD389P10u@andrzej123.flycast:5432
+
+Save your credentials in a secure place -- you won't be able to see them again!

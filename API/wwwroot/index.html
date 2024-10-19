@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      trustedTypes.createPolicy('default', {
+      createScriptURL: (input) => {
+        const stripeURL = /^https:\/\/([a-z0-9-]+\.)?js\.stripe\.com$/;
+        const origin = new URL(input).origin;
+        if (stripeURL.matches(origin)) {
+          return input;
+        }
+        return undefined;
+      },
+    });
+    </script>
+        
+    <title>ReStore</title>
+    <script type="module" crossorigin src="/assets/index-DgJC2Oev.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BYgJW059.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

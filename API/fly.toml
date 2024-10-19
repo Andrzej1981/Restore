@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for api-ancient-breeze-5434 on 2024-10-19T18:58:25+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'api-ancient-breeze-5434'
+primary_region = 'waw'
+
+[build]
+  image = 'andrzejs21/restore:latest'
+
+[env]
+  ASPNETCORE_URLS="http://+:8080"  
+  StripeSettings__PublishableKey="pk_test_51Q8oDaFaMZ3qp9mH2Do6pug98dwRVnuSCDIxvZyC73fZxlZf7x6rhgRxF1ND769llx2Anx1HHeFvpiqscM8MOVjx00eO81Sun3"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

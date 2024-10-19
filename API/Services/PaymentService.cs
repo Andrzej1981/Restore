@@ -22,7 +22,7 @@ namespace API.Services
             var service = new PaymentIntentService();
             var intent = new PaymentIntent();
             var subtotal = basket.Items.Sum(item=> item.Quantity*item.Product.Price);
-            var deliveryFee = subtotal> 10000 ? 0 :500;
+            var deliveryFee = subtotal>40000 ? 0 : 500;
 
             if(string.IsNullOrEmpty(basket.PaymentIntentId))
             {
