@@ -5,7 +5,7 @@ import NotFound from "../../app/errors/NotFound";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { LoadingButton } from "@mui/lab";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
-import { addBasketItemAsync, removeBasketitemAsync} from "../basket/backetSlice";
+import { addBasketItemAsync, removeBasketItemAsync} from "../basket/backetSlice";
 import { fetchProductAsync, productSelectors } from "./catalogSlice";
 
 export default function ProductDetails(){
@@ -38,7 +38,7 @@ export default function ProductDetails(){
             dispatch(addBasketItemAsync({productId:product?.id,quantity:updateQuantity}))
         } else {
             const updateQuantity = item.quantity - quantity;
-            dispatch(removeBasketitemAsync({productId:product?.id,quantity:updateQuantity}))
+            dispatch(removeBasketItemAsync({productId:product?.id,quantity:updateQuantity}))
         }
     }
 
@@ -55,7 +55,7 @@ export default function ProductDetails(){
                     {product.name}
                 </Typography>
                 <Divider sx={{mb:2}} />
-                <Typography variant="h4" color='secondary'>{(product.price*0.021).toFixed(2)} zł</Typography>
+                <Typography variant="h4" color='secondary'>{(product.price*0.01).toFixed(2)} zł</Typography>
                 <TableContainer>
                     <Table>
                         <TableBody>

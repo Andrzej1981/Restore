@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for restore-shop1981 on 2024-10-30T21:42:14+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'restore-shop1981'
+primary_region = 'waw'
+
+[build]
+  image = 'andrzejs21/restore:latest'
+
+[env]
+  ASPNETCORE_URLS = 'http://+:8080'
+  Cloudinary__ApiKey = '358736749894563'
+  Cloudinary__CloudName = 'dyuhyk1zb'
+  StripeSettings__PublishableKey = 'pk_test_51Q8oDaFaMZ3qp9mH2Do6pug98dwRVnuSCDIxvZyC73fZxlZf7x6rhgRxF1ND769llx2Anx1HHeFvpiqscM8MOVjx00eO81Sun3'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-2x'

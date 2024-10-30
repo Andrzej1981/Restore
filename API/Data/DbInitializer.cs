@@ -16,7 +16,7 @@ public static class DbInitializer
                 Email = "bob@test.com",
             };
 
-            await userManager.CreateAsync(user, "Pa$$w0rd");
+            await userManager.CreateAsync(user, "Test@1234");
             await userManager.AddToRoleAsync(user, "Member");
 
             var admin = new User
@@ -25,7 +25,7 @@ public static class DbInitializer
                 Email = "admin@test.com",
             };
 
-            await userManager.CreateAsync(user, "Pa$$w0rd");
+            await userManager.CreateAsync(admin, "Test@1234");
             await userManager.AddToRolesAsync(admin, new[] { "Member", "Admin" });
         }
 

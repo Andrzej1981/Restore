@@ -7,7 +7,7 @@ import { StripeElementType } from "@stripe/stripe-js";
 
 
 interface Props{
-  cardState: {[key in StripeElementType]?:string};
+  cardState: {elementError: {[key in StripeElementType]?: string}},
   onCardInputChange: (event:any)=>void;
 }
 

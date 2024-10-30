@@ -8,7 +8,7 @@ import { store } from "../store/configureStore";
 
 const sleep = ()=> new Promise(resolve=>setTimeout(resolve,500));
 
-axios.defaults.baseURL='http://localhost:5000/api/';
+axios.defaults.baseURL='/api/'
 axios.defaults.withCredentials=true;
 
 const responseBody = (response: AxiosResponse)=>response.data;
@@ -20,7 +20,7 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use( async response=>{
-    await sleep();
+    if (import.meta.env.DEV) await sleep();
     console.log(response);
     const pagination = response.headers['pagination'];
     if(pagination){
@@ -51,6 +51,9 @@ axios.interceptors.response.use( async response=>{
         case 404:
              toast.error('Nie znaleziono!');
             break;
+        case 403:
+             toast.error('Brak autoryzacji do tej operacji!');
+            break;
         case 500:
             router.navigate('/server-error',{state:{error:data}});
             break;
@@ -65,6 +68,24 @@ const requests = {
     post:(url:string, body:object)=> axios.post(url,body).then(responseBody),
     put:(url:string, body:object)=> axios.put(url,body).then(responseBody),
     delete:(url:string)=> axios.delete(url).then(responseBody),
+    postForm: (url:string, data:FormData)=> axios.post(url,data,{headers:{'Content-Type':'multipart/form-data'}
+    }).then(responseBody),
+    putForm: (url:string, data:FormData)=> axios.put(url,data,{headers:{'Content-Type':'multipart/form-data'}
+    }).then(responseBody)
+}
+
+function createFormData(item:any){
+    const formData = new FormData();
+    for (const key in item) {
+        formData.append(key,item[key])
+    }
+    return formData
+}
+
+const Admin = {
+    createProduct: (product:any) =>requests.postForm('products',createFormData(product)),
+    updateProduct: (product:any) =>requests.putForm('products',createFormData(product)),
+    deleteProduct: (id:number) =>requests.delete(`products/${id}`)
 }
 
 const Catalog = {
@@ -112,7 +133,8 @@ const agent = {
     Basket,
     Account,
     Orders,
-    Payments
+    Payments,
+    Admin
 }
 
 export default agent
