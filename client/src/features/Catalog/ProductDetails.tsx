@@ -55,7 +55,7 @@ export default function ProductDetails(){
                     {product.name}
                 </Typography>
                 <Divider sx={{mb:2}} />
-                <Typography variant="h4" color='secondary'>{(product.price*0.021).toFixed(2)} zł</Typography>
+                <Typography variant="h4" color='secondary'>{(product.price*0.01).toFixed(2)} zł</Typography>
                 <TableContainer>
                     <Table>
                         <TableBody>

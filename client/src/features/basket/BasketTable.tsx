@@ -21,9 +21,9 @@ export default function BasketTable({ items, isBasket = true }: Props) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Product</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        <TableCell align="center">Quantity</TableCell>
-                        <TableCell align="right">Subtotal</TableCell>
+                        <TableCell align="right">Cena</TableCell>
+                        <TableCell align="center">Ilość</TableCell>
+                        <TableCell align="right">Suma</TableCell>
                         {isBasket &&
                             <TableCell align="right"></TableCell>}
                     </TableRow>
@@ -40,7 +40,7 @@ export default function BasketTable({ items, isBasket = true }: Props) {
                                     <span>{item.name}</span>
                                 </Box>
                             </TableCell>
-                            <TableCell align="right">${(item.price / 100).toFixed(2)}</TableCell>
+                            <TableCell align="right">{(item.price / 100).toFixed(2)}zł</TableCell>
                             <TableCell align="center">
                                 {isBasket &&
                                     <LoadingButton
@@ -62,7 +62,7 @@ export default function BasketTable({ items, isBasket = true }: Props) {
                                         <Add />
                                     </LoadingButton>}
                             </TableCell>
-                            <TableCell align="right">${((item.price / 100) * item.quantity).toFixed(2)}</TableCell>
+                            <TableCell align="right">{((item.price / 100) * item.quantity).toFixed(2)}zł</TableCell>
                             {isBasket &&
                                 <TableCell align="right">
                                     <LoadingButton
