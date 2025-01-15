@@ -2,7 +2,7 @@
 <h3>Użyte technologie:</h3>
 <p>- .NET Core Web API - Backend</p>
 <p>- Entity Framework</p>
-<p> - React TS</p>
+<p> - Vite TS</p>
 <p> - React Router</p>
 <p> - Redux</p>
 <p>- .NET Identity</p>
